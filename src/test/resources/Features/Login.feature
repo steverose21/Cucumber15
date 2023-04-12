@@ -18,7 +18,7 @@ Feature: Login Functionalities
 
   @scenarioOutline
   #Parameterization/ Data Driven
-  Scenario Outline:
+  Scenario Outline: Login with multiple credentials using Scenario Outline
     #Given open the browser and launch HRMS application
     When user enters valid "<username>" and valid "<password>"
     And click on login button
@@ -30,6 +30,13 @@ Feature: Login Functionalities
       | ADMIN    | Hum@nhrm123 |
       | Jason    | Hum@nhrm123 |
 
+  @dataTable
+  Scenario: Login with multiple credentials using data table
+    When user enters username and password and verifies login
+      | username | password    |
+      | admin    | Hum@nhrm123 |
+      | ADMIN    | Hum@nhrm123 |
+      | Jason    | Hum@nhrm123 |
 
 
 
