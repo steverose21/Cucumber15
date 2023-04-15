@@ -33,7 +33,7 @@ public class Login extends CommonMethods {
 
     @When("user enters valid email and valid password")
     public void user_enters_valid_email_and_valid_password() {
-        LoginPage login = new LoginPage();
+        //LoginPage login = new LoginPage();
         sendText(login.usernameTextBox, ConfigReader.getPropertyValue("username"));
         sendText(login.passwordTextBox, ConfigReader.getPropertyValue("password"));
     }
