@@ -24,7 +24,7 @@ to integrate with framework, we will pass url, username and password in config.p
 
 In order to integrate our db in framework, we create dbutility class
 
-select emp_firstname, emp_lastname
+select *
 from hr_hs_employee
 where employee_id='12345';
 
