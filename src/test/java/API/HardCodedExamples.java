@@ -11,7 +11,8 @@ import static org.hamcrest.Matchers.*;
 public class HardCodedExamples {
 
     String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
-    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODQ4ODc4MzUsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY4NDkzMTAzNSwidXNlcklkIjoiNTI2MyJ9.2RKfr0XMO14mwh2NjLnyH7v4USm6vYh-c9m9Qgp0tsA";
+    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODQ5NzE0MzksImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY4NTAxNDYzOSwidXNlcklkIjoiNTI2MyJ9.4y3emLFMr1tt9Iqi0BLFU0nx3n5uRL2ZonPBBmXJrio";
+    static String employee_id;
 
     @Test
     public void createEmployee(){
@@ -35,13 +36,18 @@ public class HardCodedExamples {
         //verifying the assertions/ get response
         response.then().assertThat().statusCode(201);
 
+        //we are capturing employee id from the response
+        employee_id = response.jsonPath().getString("Employee.employee_id");
+        System.out.println(employee_id);
+
         //verifying the firstname in the response body
         response.then().assertThat().
                 body("Employee.emp_firstname", equalTo("nelena"));
+        response.then().assertThat().
+                body("Employee.emp_lastname", equalTo("faria"));
+
+        //verify the response headers
+        response.then().assertThat().header("Content-Type","application/json");
         System.out.println("My test case is passed");
-
     }
-
-
-
 }
