@@ -647,6 +647,18 @@ base URI = base URL + endpoint
 in rest assured API
 base URI = base URL
 
+hamcrest matchers -
+hamcrest is a popular framework that  helps us to create matcher objects.
+It is used for writing tests and performs testing in programming. Hamcrest is mainly
+used with other testing frameworks like junit.
+
+Hamcrest matchers -
+class that contains methods to perform assertions
+
+JsonPath vs jsonPath()?
+
+JsonPath is a class
+jsonPath() is a method that belongs to JsonPath class
 
 
 

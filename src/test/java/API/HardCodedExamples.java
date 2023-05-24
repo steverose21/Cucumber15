@@ -6,6 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 
 public class HardCodedExamples {
 
@@ -29,11 +30,15 @@ public class HardCodedExamples {
 
         //hitting the endpoint/send the request
         Response response = preparedRequest.when().post("/createEmployee.php");
-
-        //verifying the assertions/ get response
-        response.then().assertThat().statusCode(201);
         //it will print the output in the console
         response.prettyPrint();
+        //verifying the assertions/ get response
+        response.then().assertThat().statusCode(201);
+
+        //verifying the firstname in the response body
+        response.then().assertThat().
+                body("Employee.emp_firstname", equalTo("nelena"));
+        System.out.println("My test case is passed");
 
     }
 
