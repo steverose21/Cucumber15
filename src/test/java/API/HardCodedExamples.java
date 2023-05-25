@@ -96,4 +96,20 @@ public class HardCodedExamples {
         response.then().assertThat().body("Message", equalTo("Employee record Updated"));
     }
 
+    @Test
+    public void dgetUpdatedEmployee(){
+        RequestSpecification preparedRequest = given().
+                header("Content-Type","application/json").
+                header("Authorization", token).
+                queryParam("employee_id",employee_id);
+
+        Response response = preparedRequest.when().get("/getOneEmployee.php");
+        response.prettyPrint();
+        response.then().assertThat().statusCode(200);
+        //if you want to verify the body of the response.
+        //you can do that using hamcrest matchers
+
+    }
+
+
 }
