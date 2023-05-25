@@ -26,20 +26,15 @@ public class HardCodedExamples {
                 header("Authorization", token).
                 queryParam("employee_id",employee_id);
 
-
         //hitting the endpoint
         Response response = preparedRequest.when().get("/getOneEmployee.php");
         response.prettyPrint();
         //verify the reponse
         response.then().assertThat().statusCode(200);
-
         String tempEmpId = response.jsonPath().getString("employee.employee_id");
-
         //we have 2 emp id, one is global and second is local
         Assert.assertEquals(employee_id, tempEmpId);
-
     }
-
 
     @Test
     public void acreateEmployee(){
@@ -78,7 +73,27 @@ public class HardCodedExamples {
         System.out.println("My test case is passed");
     }
 
+//in homework, create a method to get all emoloyee status and job title
+   @Test
+    public void cupdateEmployee(){
+        RequestSpecification preparedRequest = given().
+                header("Content-Type","application/json").
+                header("Authorization", token).body("{\n" +
+                        "  \"employee_id\": \""+employee_id+"\",\n" +
+                        "  \"emp_firstname\": \"visnja\",\n" +
+                        "  \"emp_lastname\": \"hasmik\",\n" +
+                        "  \"emp_middle_name\": \"msa\",\n" +
+                        "  \"emp_gender\": \"M\",\n" +
+                        "  \"emp_birthday\": \"2003-05-20\",\n" +
+                        "  \"emp_status\": \"probation\",\n" +
+                        "  \"emp_job_title\": \"CEO\"\n" +
+                        "}");
 
-
+        //hitting the endpoint
+        Response response = preparedRequest.when().put("/updateEmployee.php");
+        response.then().assertThat().statusCode(200);
+        //for verification
+        response.then().assertThat().body("Message", equalTo("Employee record Updated"));
+    }
 
 }
