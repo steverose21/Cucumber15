@@ -3,11 +3,16 @@ package API;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class HardCodedExamples {
 
     String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
@@ -15,7 +20,29 @@ public class HardCodedExamples {
     static String employee_id;
 
     @Test
-    public void createEmployee(){
+    public void bgetCreatedEmployee(){
+        RequestSpecification preparedRequest = given().
+                header("Content-Type","application/json").
+                header("Authorization", token).
+                queryParam("employee_id",employee_id);
+
+
+        //hitting the endpoint
+        Response response = preparedRequest.when().get("/getOneEmployee.php");
+        response.prettyPrint();
+        //verify the reponse
+        response.then().assertThat().statusCode(200);
+
+        String tempEmpId = response.jsonPath().getString("employee.employee_id");
+
+        //we have 2 emp id, one is global and second is local
+        Assert.assertEquals(employee_id, tempEmpId);
+
+    }
+
+
+    @Test
+    public void acreateEmployee(){
         //prepare the request
         RequestSpecification preparedRequest = given().
                 header("Content-Type","application/json").
@@ -50,4 +77,8 @@ public class HardCodedExamples {
         response.then().assertThat().header("Content-Type","application/json");
         System.out.println("My test case is passed");
     }
+
+
+
+
 }
