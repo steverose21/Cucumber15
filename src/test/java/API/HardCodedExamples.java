@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.*;
 public class HardCodedExamples {
 
     String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
-    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODQ5NzE0MzksImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY4NTAxNDYzOSwidXNlcklkIjoiNTI2MyJ9.4y3emLFMr1tt9Iqi0BLFU0nx3n5uRL2ZonPBBmXJrio";
+    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODUyMDcwMTgsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY4NTI1MDIxOCwidXNlcklkIjoiNTI2MyJ9.AjCtpM_DKUkviiiyl664kVn3efocdfRqXkreIE8xds8";
     static String employee_id;
 
     @Test
