@@ -17,6 +17,7 @@ public class APIWorkflowSteps {
     Response response;
     public static String employee_id;
 
+    //making a requst with usual payload
     @Given("a request is prepared to create an employee")
     public void a_request_is_prepared_to_create_an_employee() {
         request = given().
@@ -25,6 +26,19 @@ public class APIWorkflowSteps {
                 header(APIConstants.HEADER_KEY_AUTHORIZATION,
                         GenerateTokenSteps.token).
                 body(APIPayloadConstants.createEmployeePayload());
+    }
+
+    //----------------------------------------------------------------------------
+    //another request making with json payload
+
+    @Given("a request is prepared to create an employee using json payload")
+    public void a_request_is_prepared_to_create_an_employee_using_json_payload() {
+        request = given().
+                header(APIConstants.HEADER_KEY_CONTENT_TYPE,
+                        APIConstants.HEADER_VALUE_CONTENT_TYPE).
+                header(APIConstants.HEADER_KEY_AUTHORIZATION,
+                        GenerateTokenSteps.token)
+                .body(APIPayloadConstants.createEmployeePayloadJson());
     }
 
     @When("a POST call is made to create an employee")
