@@ -26,4 +26,4 @@ Feature: API workflow for HRMS
     Then the employee data we get having id "employee.employee_id" must match with globally stored employee id
     Then the retrieved data at "employee" object matches with the data of created employee
     |emp_firstname|emp_lastname|emp_middle_name|emp_gender|emp_birthday|emp_status|emp_job_title|
-    |nelena       |faria       |ms             |Female    |2012-05-20  |Confirmed |Engineer     |
+    |nelena       |faria       |ms             |Female    |2012-05-20  |confirmed |Engineer     |
