@@ -117,7 +117,11 @@ public class APIWorkflowSteps {
                 Assert.assertEquals(expectedValue, actualValue);
             }
         }
+        //------------------------------------------------------------------------------
     }
-
-
+    @Given("a request is prepared to create an employee with dynamic data {string} , {string} , {string} , {string} , {string} , {string} , {string}")
+    public void a_request_is_prepared_to_create_an_employee_with_dynamic_data(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 }
