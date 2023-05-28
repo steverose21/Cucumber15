@@ -35,3 +35,10 @@ Feature: API workflow for HRMS
     Then the status code for creating an employee is 201
     Then the employee contains key "Message" and  value "Employee Created"
     Then the employee id "Employee.employee_id" is stored as a global variable to be used for other calls
+
+  @updateemployee
+  Scenario: updating the employee via API call
+    Given a request is prepared to update an employee
+    When a PUT call is made to update an employee
+    Then the status code of updated employee is 200
+
