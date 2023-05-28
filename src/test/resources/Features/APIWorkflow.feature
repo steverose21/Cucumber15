@@ -28,7 +28,7 @@ Feature: API workflow for HRMS
     |emp_firstname|emp_lastname|emp_middle_name|emp_gender|emp_birthday|emp_status|emp_job_title|
     |nelena       |faria       |ms             |Female    |2012-05-20  |confirmed |Engineer     |
 
-  @apipayloadmoredynamic
+  @dynamic
   Scenario: create an employee using API call
     Given a request is prepared to create an employee with dynamic data "nelena" , "faria" , "ms" , "F" , "2012-05-20" , "Confirmed" , "Engineer"
     When a POST call is made to create an employee
