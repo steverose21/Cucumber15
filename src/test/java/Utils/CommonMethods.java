@@ -32,6 +32,9 @@ public class CommonMethods extends PageInitializer {
             case "Chrome":
                 ChromeOptions ops = new ChromeOptions();
                 ops.addArguments("--remote-allow-origins=*");
+                if(ConfigReader.getPropertyValue("Headless").equals("true")){
+                    ops.addArguments("--headless=new");
+                }
                 driver = new ChromeDriver(ops);
                 break;
 
