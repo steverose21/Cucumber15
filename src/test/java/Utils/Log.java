@@ -51,6 +51,6 @@ public class Log {
     // site: generates documentation for the project
     // deploy: copies the final package to remote repository for sharing with other developers or projects
 
-
+// //adding a comment to verify commit operation
 
 }
